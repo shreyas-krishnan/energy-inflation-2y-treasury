@@ -1,0 +1,4 @@
+forecast,mean_error_h1_pp
+model,0.011828348219848248
+model_no_dummies,0.012887794259684539
+retail_1to1,-0.008323611705386898

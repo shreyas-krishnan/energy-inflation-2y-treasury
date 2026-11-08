@@ -1,0 +1,10 @@
+date,event,why,source
+2026-11-10,"CPI for October 2026 (BLS, 8:30 ET)","Tests the 1:1 gasoline nowcast, core assumption and the headline path",BLS 2026 release schedule (config.yaml)
+2026-11-10,EIA Short-Term Energy Outlook,Moves the falling (EIA) gasoline path and the below-EIA trigger,EIA STEO page
+2026-12-09,"FOMC decision (December 8-9), with projections",Policy decision; resets the front end of the curve and the forward,federalreserve.gov FOMC calendar
+2026-12-10,"CPI for November 2026 (BLS, 8:30 ET)","Tests the 1:1 gasoline nowcast, core assumption and the headline path",BLS 2026 release schedule (config.yaml)
+2027-01-27,FOMC decision (January 26-27),Policy decision; resets the front end of the curve and the forward,federalreserve.gov FOMC calendar
+2027-03-17,"FOMC decision (March 16-17), with projections",Policy decision; resets the front end of the curve and the forward,federalreserve.gov FOMC calendar
+2027-04-28,FOMC decision (April 27-28),Policy decision; resets the front end of the curve and the forward,federalreserve.gov FOMC calendar
+,EIA weekly retail gasoline (every Monday),"Tracks the gasoline path against the EIA, stable and below-EIA levels",EIA via FRED GASREGW
+,Treasury daily par yield curve and bill rates (each business day),"Moves the forward, breakeven and the entry-level test",U.S. Treasury

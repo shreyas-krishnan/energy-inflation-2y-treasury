@@ -1,0 +1,169 @@
+# All assumptions and data settings live here. Phase 1 = data only.
+# Every value below that is a number must cite a source or be labeled ASSUMPTION.
+
+project:
+  as_of_date: null                  # null = today (set at run time); first pull was 2026-11-08
+  analysis_date: "2026-11-06"       # last trading day with a full Treasury curve
+
+data:
+  raw_dir: data/raw
+  processed_dir: data/processed
+
+  # FRED series (public CSV endpoint, no API key). IDs verified 2026-11-08: all returned data.
+  fred_series:
+    CPIAUCSL: "CPI-U all items, SA (BLS via FRED)"
+    CPIAUCNS: "CPI-U all items, NSA (BLS via FRED)"
+    CPILFESL: "CPI-U less food and energy, SA (BLS via FRED)"
+    CPIENGSL: "CPI-U energy, SA (BLS via FRED)"
+    CPIUFDSL: "CPI-U food, SA (BLS via FRED)"
+    CUSR0000SETB01: "CPI-U gasoline (all types), SA (BLS via FRED)"
+    CUUR0000SETB01: "CPI-U gasoline (all types), NSA (BLS via FRED)"
+    GASREGW: "US regular retail gasoline, weekly, $/gal (EIA via FRED)"
+    APU000074714: "Average price, unleaded regular gasoline, monthly, $/gal (BLS via FRED)"
+    DCOILBRENTEU: "Brent spot, daily, $/bbl (EIA via FRED)"
+    DGS2: "2-year Treasury constant maturity, % (Fed H.15 via FRED)"
+    DGS1: "1-year Treasury constant maturity, % (Fed H.15 via FRED)"
+    DGS6MO: "6-month Treasury constant maturity, % (Fed H.15 via FRED)"
+    DTB6: "6-month T-bill secondary market, discount basis, % (Fed H.15 via FRED)"
+    T5YIE: "5-year breakeven inflation, % (FRED)"
+    SOFR: "Secured overnight financing rate, % (NY Fed via FRED)"
+    DFF: "Effective federal funds rate, % (FRED)"
+    CPILFENS: "CPI-U less food and energy, NSA (BLS via FRED)"
+    CPIUFDNS: "CPI-U food, NSA (BLS via FRED)"
+    CPIENGNS: "CPI-U energy, NSA (BLS via FRED)"
+    THREEFYTP1: "Kim-Wright 1-year term premium, % (Federal Reserve Board via FRED)"
+    THREEFYTP2: "Kim-Wright 2-year term premium, % (Federal Reserve Board via FRED)"
+
+  # ALFRED real-time vintages (alfredgraph.csv endpoint). Verified working 2026-11-08.
+  alfred_series: [CUSR0000SETB01, CUUR0000SETB01, CPIAUCSL]
+
+  # BLS public API v1 (no key; 25 queries/day, 10 years/query). Used to cross-check FRED and
+  # to capture BLS footnotes (e.g., Oct 2025 missing due to the 2025 lapse in appropriations).
+  bls_series: [CUUR0000SA0, CUUR0000SA0L1E, CUUR0000SA0E, CUUR0000SETB01]
+  bls_start_year: 2021            # v1 API allows 10 years per query: covers 2021-2030
+
+  treasury:
+    par_curve_url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
+    bill_rates_url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_bill_rates&field_tdr_date_value={year}&page&_format=csv"
+    auction_notes_url: "https://www.treasurydirect.gov/TA_WS/securities/search?type=Note&securityTerm=2-Year&format=json&pagesize=5"
+    auction_bills_url: "https://www.treasurydirect.gov/TA_WS/securities/search?type=Bill&securityTerm=26-Week&format=json&pagesize=10"
+
+  eia_steo:
+    page_url: "https://www.eia.gov/outlooks/steo/"
+    xlsx_url: "https://www.eia.gov/outlooks/steo/xls/STEO_m.xlsx"
+    # vintage and next release date are read from the downloaded files on every run
+  fomc_calendar_url: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+
+  # BLS relative importance, December 2025 (2024 weights), CPI-U U.S. city average.
+  # BLS website blocks automated download (HTTP 403), so these were read from
+  # https://www.bls.gov/cpi/tables/relative-importance/2025.htm on 2026-11-08
+  # (page last modified 2026-10-07). Re-check by hand if the page changes.
+  relative_importance_dec2025:
+    source: "BLS, Relative importance of components in the CPI, U.S. city average, December 2025, Table 1 (2024 weights)"
+    retrieved: "2026-11-08"
+    all_items: 100.000
+    energy: 6.383
+    motor_fuel: 2.981
+    gasoline_all_types: 2.895
+    food: 13.698
+    all_items_less_food_energy: 79.919
+
+# ---------------- Phase 2: Modules A-B ----------------
+passthrough:
+  y_series: CUUR0000SETB01        # CPI gasoline (all types), NSA - never revised (ALFRED check)
+  x_series: GASREGW               # EIA weekly regular retail price, averaged to calendar months
+  sample_start: "1990-09-01"      # first full month of GASREGW (series starts 1990-08-20)
+  lags: 2                         # current month + 2 lags (BIC also prefers 2 over 0 or 1)
+  seasonality: "NSA on both sides + 11 calendar-month dummies"
+  hac_maxlags: 3
+
+walkforward:
+  eval_start: "2001-01-01"        # first forecast origin; gives >= 120 training months
+  horizons: 6
+  min_train_months: 120
+  weekly_availability_lag_days: 2 # Monday EIA price treated as public 2 days later
+  subperiods:
+    "2001-2019": ["2001-01-01", "2019-12-31"]
+    "2020-2026": ["2020-01-01", "2026-12-31"]
+  # Reference months spot-checked against ALFRED vintages (shutdown delays + Feb double releases)
+  availability_spot_checks: ["2009-01-01", "2013-09-01", "2013-10-01", "2019-12-01", "2022-06-01",
+                             "2024-01-01", "2025-09-01", "2025-11-01", "2026-09-01"]
+  revision_vintages: ["2012-01-20", "2019-01-20", "2024-01-20", "2026-01-20"]
+
+# Phase 3-4 assumptions (scenarios, probabilities, core/food/other-energy paths) not set yet.
+
+# ---------------- Phase 3: Modules C-D ----------------
+inflation:
+  horizon_months: 6                 # months after the last published CPI month
+  passthrough_baseline: retail_1to1 # user decision 2026-11-08: 1:1 rule is the baseline
+  passthrough_sensitivity: estimated_model
+  seasonal_window_years: 10         # window for each component's calendar-month pattern
+  # ASSUMPTIONS for components that are not modeled. null = trailing 12-month NSA change
+  # (computed from data and reported in outputs/tables/inflation_assumptions.csv).
+  component_trend_annual_pct:
+    core: null
+    food: null
+    other_energy: null
+  core_sensitivity_pp: 0.5          # +/- shift to core annual pace for the sensitivity table
+  steo_retail_code: "MGRARUS_$"     # EIA STEO table 2, regular gasoline retail, $/gal
+  # Gasoline scenarios (retail regular, monthly average):
+  #   falling = EIA STEO path anchored to the last complete month
+  #   stable  = latest weekly price held flat
+  #   rising  = mirror of the falling path around the stable path
+  # Oil/RBOB futures: NOT AVAILABLE. EIA stopped publishing NYMEX futures (file ends
+  # 2024-04-05) and no free source was found, so no futures-implied path is used.
+
+treasury_trade:
+  pricing_date: null                # null = latest date in the Treasury par-curve file
+  note_cusip: null                  # null = on-the-run 2-year note as of pricing date
+  bill_cusip: null                  # null = on-the-run 26-week bill as of pricing date
+  # Settlement = next business day (U.S. federal holiday calendar, matches SIFMA closes for
+  # Veterans/Columbus Day). Horizon = the bill's maturity, so the bill is held to maturity.
+  # ASSUMPTION: the note's yield = Treasury 2-year par yield on the pricing date (the par curve
+  # is fit to on-the-run quotes). A quoted price was unavailable (FedInvest returned HTTP 403).
+  note_yield_source: par_curve_2y
+  bill_rate_source: daily_26wk_bank_discount
+  coupon_reinvestment: bill_bey     # coupons before the horizon earn the bill yield
+  sensitivity_bp: [-100, -75, -50, -25, 0, 25, 50, 75, 100]  # vs roll-down yield (curve unchanged)
+  rate_scenarios:
+    # ASSUMPTION: 1.5-year yield at the horizon = market forward + shift.
+    # shift_bp null = half the interquartile range of historical errors
+    # (realized 1.5y par yield 6 months later minus the curve-implied forward), monthly since
+    # history_start. Symmetric so that the scenarios alone do not tilt the answer.
+    shift_bp: null
+    history_start: "1990-01-01"
+    # Yield shift in steps of shift_bp, by gasoline scenario, under two views of what the market
+    # has already priced in (the forward is the market's price; the question is which gasoline
+    # path that price embeds):
+    #   hypothesis: market prices flat gasoline -> EIA's falling path is a downside surprise.
+    #   consensus : market prices EIA's public forecast -> only gasoline below EIA's path is a
+    #               downside surprise. Same step size and probabilities; only the anchor moves.
+    mappings:
+      hypothesis: {below_eia: -2, falling: -1, stable: 0, rising: 1}
+      consensus:  {below_eia: -1, falling: 0, stable: 1, rising: 2}
+  # ASSUMPTION: scenario probabilities. Equal weights are a neutral placeholder - set your own.
+  probabilities: {falling: 0.3333, stable: 0.3334, rising: 0.3333}
+
+# ---------------- Phase 4: recommendation, triggers, monitoring ----------------
+recommendation:
+  # ASSUMPTION: minimum probability-weighted 6-month edge over the bill (percentage points,
+  # not annualized) needed to recommend the note, judged under the CONSENSUS view (market has
+  # priced EIA's forecast) - the conservative "what's priced in" test.
+  min_edge_pct: 0.10
+
+triggers:
+  # Measurable invalidation / entry triggers (all ASSUMPTIONS; values computed each run).
+  gas_below_eia_pct: 5          # monthly retail avg this far below EIA's path = "below EIA" evidence
+  gas_above_stable_pct: 0       # monthly retail avg above today's price = stable/rising evidence
+  gas_cpi_miss_rmse_multiple: 2 # CPI gasoline miss vs 1:1 nowcast > k x walk-forward h=1 RMSE
+  core_3m_ann_excess_pp: 1.0    # 3-month annualized core (SA) above the core assumption by this much
+  brent_above_steo_usd: 10      # Brent spot monthly avg above EIA's path by this much
+
+release_calendar:
+  # BLS 2026 schedule (bls.gov/schedule/2026/11_sched_list.htm and 12_sched_list.htm), checked
+  # 2026-11-08 via web search because www.bls.gov blocks scripted downloads. The BLS 2027
+  # schedule was not yet published; add dates when it is.
+  cpi:
+    - {date: "2026-11-10", reference: "October 2026"}
+    - {date: "2026-12-10", reference: "November 2026"}
+  # EIA STEO next-release date and FOMC meetings are parsed from the downloaded pages.

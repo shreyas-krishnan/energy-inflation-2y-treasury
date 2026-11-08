@@ -1,0 +1,431 @@
+[
+ {
+  "source": "FRED",
+  "id": "CPIAUCSL",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL",
+  "retrieved": "2026-11-08T16:44:55",
+  "first_obs": "1947-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 336.298,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "CPIAUCNS",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS",
+  "retrieved": "2026-11-08T16:44:56",
+  "first_obs": "1913-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 336.94,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "CPILFESL",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPILFESL",
+  "retrieved": "2026-11-08T16:44:56",
+  "first_obs": "1957-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 338.896,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "CPIENGSL",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIENGSL",
+  "retrieved": "2026-11-08T16:44:56",
+  "first_obs": "1957-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 337.834,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "CPIUFDSL",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIUFDSL",
+  "retrieved": "2026-11-08T16:44:56",
+  "first_obs": "1947-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 350.477,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "CUSR0000SETB01",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SETB01",
+  "retrieved": "2026-11-08T16:44:56",
+  "first_obs": "1967-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 376.558,
+  "n_missing": 0,
+  "missing_sample": []
+ },
+ {
+  "source": "FRED",
+  "id": "CUUR0000SETB01",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUUR0000SETB01",
+  "retrieved": "2026-11-08T16:44:57",
+  "first_obs": "1935-03-01",
+  "last_obs": "2026-09-01",
+  "last_value": 383.182,
+  "n_missing": 149,
+  "missing_sample": [
+   "1966-05-01",
+   "1966-07-01",
+   "1966-08-01",
+   "1966-10-01",
+   "1966-11-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "GASREGW",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GASREGW",
+  "retrieved": "2026-11-08T16:44:57",
+  "first_obs": "1990-08-20",
+  "last_obs": "2026-11-02",
+  "last_value": 4.153,
+  "n_missing": 6,
+  "missing_sample": [
+   "1990-12-17",
+   "1990-12-24",
+   "1990-12-31",
+   "1991-01-07",
+   "1991-01-14"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "APU000074714",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=APU000074714",
+  "retrieved": "2026-11-08T16:44:57",
+  "first_obs": "1976-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 4.482,
+  "n_missing": 0,
+  "missing_sample": []
+ },
+ {
+  "source": "FRED",
+  "id": "DCOILBRENTEU",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DCOILBRENTEU",
+  "retrieved": "2026-11-08T16:44:57",
+  "first_obs": "1987-05-20",
+  "last_obs": "2026-11-03",
+  "last_value": 107.03,
+  "n_missing": 1173,
+  "missing_sample": [
+   "2026-04-03",
+   "2026-04-06",
+   "2026-05-04",
+   "2026-05-25",
+   "2026-08-31"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "DGS2",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS2",
+  "retrieved": "2026-11-08T16:44:57",
+  "first_obs": "1976-06-01",
+  "last_obs": "2026-11-05",
+  "last_value": 4.46,
+  "n_missing": 553,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "DGS1",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS1",
+  "retrieved": "2026-11-08T16:44:58",
+  "first_obs": "1962-01-02",
+  "last_obs": "2026-11-05",
+  "last_value": 4.28,
+  "n_missing": 721,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "DGS6MO",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS6MO",
+  "retrieved": "2026-11-08T16:44:58",
+  "first_obs": "1981-09-01",
+  "last_obs": "2026-11-05",
+  "last_value": 4.19,
+  "n_missing": 493,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "DTB6",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB6",
+  "retrieved": "2026-11-08T16:44:58",
+  "first_obs": "1958-12-09",
+  "last_obs": "2026-11-05",
+  "last_value": 4.08,
+  "n_missing": 755,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "T5YIE",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T5YIE",
+  "retrieved": "2026-11-08T16:44:58",
+  "first_obs": "2003-01-02",
+  "last_obs": "2026-11-06",
+  "last_value": 2.29,
+  "n_missing": 255,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "SOFR",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SOFR",
+  "retrieved": "2026-11-08T16:44:59",
+  "first_obs": "2018-04-03",
+  "last_obs": "2026-11-05",
+  "last_value": 3.92,
+  "n_missing": 96,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "DFF",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF",
+  "retrieved": "2026-11-08T16:44:59",
+  "first_obs": "1954-07-01",
+  "last_obs": "2026-11-05",
+  "last_value": 3.88,
+  "n_missing": 0,
+  "missing_sample": []
+ },
+ {
+  "source": "FRED",
+  "id": "CPILFENS",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPILFENS",
+  "retrieved": "2026-11-08T16:44:59",
+  "first_obs": "1957-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 339.287,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "CPIUFDNS",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIUFDNS",
+  "retrieved": "2026-11-08T16:44:59",
+  "first_obs": "1913-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 350.905,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "CPIENGNS",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIENGNS",
+  "retrieved": "2026-11-08T16:44:59",
+  "first_obs": "1957-01-01",
+  "last_obs": "2026-09-01",
+  "last_value": 341.573,
+  "n_missing": 1,
+  "missing_sample": [
+   "2025-10-01"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "THREEFYTP1",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=THREEFYTP1",
+  "retrieved": "2026-11-08T16:44:59",
+  "first_obs": "1990-01-02",
+  "last_obs": "2026-10-30",
+  "last_value": 0.3025,
+  "n_missing": 415,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "FRED",
+  "id": "THREEFYTP2",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=THREEFYTP2",
+  "retrieved": "2026-11-08T16:45:00",
+  "first_obs": "1990-01-02",
+  "last_obs": "2026-10-30",
+  "last_value": 0.4448,
+  "n_missing": 415,
+  "missing_sample": [
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07",
+   "2026-10-12"
+  ]
+ },
+ {
+  "source": "ALFRED",
+  "id": "CUSR0000SETB01",
+  "vintage": "2026-11-08",
+  "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=CUSR0000SETB01&vintage_date=2026-11-08",
+  "retrieved": "2026-11-08T16:45:00",
+  "last_obs": "2026-09-01"
+ },
+ {
+  "source": "ALFRED",
+  "id": "CUUR0000SETB01",
+  "vintage": "2026-11-08",
+  "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=CUUR0000SETB01&vintage_date=2026-11-08",
+  "retrieved": "2026-11-08T16:45:00",
+  "last_obs": "2026-09-01"
+ },
+ {
+  "source": "ALFRED",
+  "id": "CPIAUCSL",
+  "vintage": "2026-11-08",
+  "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=CPIAUCSL&vintage_date=2026-11-08",
+  "retrieved": "2026-11-08T16:45:00",
+  "last_obs": "2026-09-01"
+ },
+ {
+  "source": "BLS API v1",
+  "ids": [
+   "CUUR0000SA0",
+   "CUUR0000SA0L1E",
+   "CUUR0000SA0E",
+   "CUUR0000SETB01"
+  ],
+  "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+  "retrieved": "2026-11-08T16:45:00"
+ },
+ {
+  "source": "U.S. Treasury par yield curve",
+  "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2025/all?type=daily_treasury_yield_curve&field_tdr_date_value=2025&page&_format=csv",
+  "file": "data/raw/web/ust_par_curve_2025.csv",
+  "retrieved": "2026-11-08T16:45:17",
+  "bytes": 20155
+ },
+ {
+  "source": "U.S. Treasury daily bill rates",
+  "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2025/all?type=daily_treasury_bill_rates&field_tdr_date_value=2025&page&_format=csv",
+  "file": "data/raw/web/ust_bill_rates_2025.csv",
+  "retrieved": "2026-11-08T16:45:36",
+  "bytes": 20297
+ },
+ {
+  "source": "U.S. Treasury par yield curve",
+  "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv",
+  "file": "data/raw/web/ust_par_curve_2026.csv",
+  "retrieved": "2026-11-08T16:45:55",
+  "bytes": 17444
+ },
+ {
+  "source": "U.S. Treasury daily bill rates",
+  "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_bill_rates&field_tdr_date_value=2026&page&_format=csv",
+  "file": "data/raw/web/ust_bill_rates_2026.csv",
+  "retrieved": "2026-11-08T16:46:15",
+  "bytes": 17710
+ },
+ {
+  "source": "TreasuryDirect auction results",
+  "url": "https://www.treasurydirect.gov/TA_WS/securities/search?type=Note&securityTerm=2-Year&format=json&pagesize=5",
+  "file": "data/raw/treasurydirect_notes_2y.json",
+  "retrieved": "2026-11-08T16:46:17",
+  "bytes": 3709754
+ },
+ {
+  "source": "TreasuryDirect auction results",
+  "url": "https://www.treasurydirect.gov/TA_WS/securities/search?type=Bill&securityTerm=26-Week&format=json&pagesize=10",
+  "file": "data/raw/treasurydirect_bills_26w.json",
+  "retrieved": "2026-11-08T16:46:18",
+  "bytes": 16022627
+ },
+ {
+  "source": "ALFRED CPI release dates (release id 10)",
+  "url": "https://alfred.stlouisfed.org/release/downloaddates?rid=10&ff=txt",
+  "file": "data/raw/alfred_release_dates_cpi_rid10.txt",
+  "retrieved": "2026-11-08T16:46:26",
+  "bytes": 12166
+ },
+ {
+  "source": "EIA STEO landing page",
+  "url": "https://www.eia.gov/outlooks/steo/",
+  "file": "data/raw/web/eia_steo.html",
+  "retrieved": "2026-11-08T16:46:27",
+  "bytes": 66867
+ },
+ {
+  "source": "Federal Reserve FOMC calendar",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+  "file": "data/raw/web/fomc_calendar.html",
+  "retrieved": "2026-11-08T16:46:27",
+  "bytes": 166350
+ },
+ {
+  "source": "EIA STEO",
+  "url": "https://www.eia.gov/outlooks/steo/xls/STEO_m.xlsx",
+  "file": "data/raw/web/eia_steo_table.xlsx",
+  "retrieved": "2026-11-08T16:46:27",
+  "bytes": 1098385
+ }
+]

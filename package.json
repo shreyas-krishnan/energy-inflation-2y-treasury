@@ -1,0 +1,9 @@
+{
+  "name": "energy-inflation-2y-treasury-reports",
+  "private": true,
+  "description": "Renders the memo (.docx) and deck (.pptx) from outputs/build/*.json",
+  "dependencies": {
+    "docx": "^9.15.3",
+    "pptxgenjs": "^4.0.1"
+  }
+}

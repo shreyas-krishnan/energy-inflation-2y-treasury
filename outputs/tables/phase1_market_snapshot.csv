@@ -1,0 +1,21 @@
+item,value,observation_date,source
+UST par yield 6 Mo,4.23,2026-11-06,U.S. Treasury daily par yield curve
+UST par yield 1 Yr,4.33,2026-11-06,U.S. Treasury daily par yield curve
+UST par yield 2 Yr,4.51,2026-11-06,U.S. Treasury daily par yield curve
+26-wk bill bank discount,4.12,2026-11-06,U.S. Treasury daily bill rates
+26-wk bill coupon equivalent,4.26,2026-11-06,U.S. Treasury daily bill rates
+DGS2,4.46,2026-11-05,FRED
+DGS6MO,4.19,2026-11-05,FRED
+DTB6,4.08,2026-11-05,FRED
+DFF,3.88,2026-11-05,FRED
+SOFR,3.92,2026-11-05,FRED
+T5YIE,2.29,2026-11-06,FRED
+DCOILBRENTEU,107.03,2026-11-03,FRED
+GASREGW,4.153,2026-11-02,FRED
+2y note cusip,91282CRU7,2026-11-02,TreasuryDirect auction results
+2y note interestRate,4.625,2026-11-02,TreasuryDirect auction results
+2y note highYield,4.708,2026-11-02,TreasuryDirect auction results
+2y note highPrice,99.843155,2026-11-02,TreasuryDirect auction results
+2y note issueDate,2026-11-02T00:00:00,2026-11-02,TreasuryDirect auction results
+2y note datedDate,2026-10-31T00:00:00,2026-11-02,TreasuryDirect auction results
+2y note maturityDate,2028-10-31T00:00:00,2026-11-02,TreasuryDirect auction results

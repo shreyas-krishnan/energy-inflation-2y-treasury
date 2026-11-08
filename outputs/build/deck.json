@@ -1,0 +1,132 @@
+{
+ "slides": [
+  {
+   "kind": "title",
+   "title": "Will fading gasoline inflation make the 2-year note beat a 6-month bill?",
+   "subtitle": "Investment research | Market prices as of November 6, 2026",
+   "stats": [
+    [
+     "2.08%",
+     "6-month bill return"
+    ],
+    [
+     "4.61%",
+     "Breakeven 1.5-year yield"
+    ],
+    [
+     "No trade at current prices",
+     "Recommendation"
+    ]
+   ],
+   "notes": "Note 91282CRU7 vs bill 912797WX1, settle 2026-11-09, horizon 2027-05-06."
+  },
+  {
+   "kind": "chart",
+   "title": "Gasoline is fading, but headline CPI only drops in March 2027 data",
+   "image": {
+    "type": "image",
+    "path": "/Users/shreyaskrishnan/energy-inflation-2y-treasury/outputs/figures/headline_cpi_scenarios.png",
+    "width_in": 8.0,
+    "height_in": 4.329411764705882
+   },
+   "points": [
+    "October 2026 pump prices averaged $4.31, under EIA's $4.40",
+    "EIA path: $3.66 by March 2027",
+    "Headline y/y: 2.7% (EIA) to 3.7% (rising)",
+    "Stable case first rises to 4.1% (January 2027)"
+   ],
+   "notes": "Core, food and other energy are assumptions (trailing 12-month pace). Sources: BLS, EIA."
+  },
+  {
+   "kind": "ladder",
+   "title": "The market already prices a 19 bp rise in the 1.5-year yield",
+   "steps": [
+    [
+     "4.42%",
+     "1.5-year yield if the curve does not move"
+    ],
+    [
+     "4.51%",
+     "2-year yield today"
+    ],
+    [
+     "4.61%",
+     "Market forward = breakeven"
+    ]
+   ],
+   "points": [
+    "Fed funds (effective): 3.88%",
+    "Kim-Wright term premium: 0.30% (1-yr), 0.44% (2-yr)",
+    "The note wins only if the yield ends below the forward"
+   ],
+   "notes": "Forward from the note financed at the bill; cross-checked against the bootstrapped par curve."
+  },
+  {
+   "kind": "chart",
+   "title": "Weekly gas prices predict next month's CPI print, not gasoline itself",
+   "image": {
+    "type": "image",
+    "path": "/Users/shreyaskrishnan/energy-inflation-2y-treasury/outputs/figures/forecast_errors_vs_benchmarks.png",
+    "width_in": 8.6,
+    "height_in": 3.612
+   },
+   "points": [
+    "1-month error 74% below no change",
+    "6 months out: ratio 0.96",
+    "A 1:1 rule beat the estimated model, so it is the baseline"
+   ],
+   "notes": "308 real-time forecasts, 2001-01 to 2026-09."
+  },
+  {
+   "kind": "wide",
+   "title": "Expected edge vs the bill: +0.00% if flat gasoline is priced, -0.63% if EIA's forecast is",
+   "image": {
+    "type": "image",
+    "path": "/Users/shreyaskrishnan/energy-inflation-2y-treasury/outputs/figures/note_vs_bill_by_scenario.png",
+    "width_in": 11.6,
+    "height_in": 4.67741935483871
+   },
+   "notes": "Left: market prices flat gasoline. Right: market prices EIA's forecast. Scenario yields are assumptions."
+  },
+  {
+   "kind": "cards",
+   "title": "What would change the call",
+   "cards": [
+    [
+     "Gasoline 5% below EIA",
+     "For a full month, with the 2-year yield not falling: supports the note"
+    ],
+    [
+     "2-year yield at 4.89%",
+     "Now 4.51%: the entry level with the outlook unchanged"
+    ],
+    [
+     "Core above 3.6%",
+     "3-month annualized core: argues against the note"
+    ],
+    [
+     "Brent $10 over EIA",
+     "Supply disruption returns: rising-gasoline case"
+    ]
+   ],
+   "notes": "Full trigger table in the memo, section 6."
+  },
+  {
+   "kind": "close",
+   "title": "No trade at current prices",
+   "points": [
+    "Enter if the 2-year yield reaches 4.89% with the gasoline outlook unchanged",
+    "Or if gasoline runs 5%+ below EIA's path while yields hold",
+    "Meanwhile the 6-month bill earns 2.08% to May 6, 2027"
+   ],
+   "next": [
+    "Nov 10: CPI for October 2026 (BLS, 8:30 ET)",
+    "Nov 10: EIA Short-Term Energy Outlook",
+    "Dec 9: FOMC decision (December 8-9), with projections",
+    "Dec 10: CPI for November 2026 (BLS, 8:30 ET)"
+   ],
+   "notes": "Rerun python run_all.py after each release."
+  }
+ ],
+ "footer": "Data as of 2026-11-08 | Sources: BLS, EIA, FRED/ALFRED, U.S. Treasury"
+}

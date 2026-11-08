@@ -1,0 +1,10 @@
+claim,user_value,source_value,source,as_of
+Sep 2026 headline CPI y/y,3.7,3.74,"BLS API v1, NSA, 12-month % change (CUUR0000SA0)",2026-11-08
+Sep 2026 core CPI y/y,2.6,2.56,"BLS API v1, NSA, 12-month % change (CUUR0000SA0L1E)",2026-11-08
+Sep 2026 energy CPI y/y,20.4,20.45,"BLS API v1, NSA, 12-month % change (CUUR0000SA0E)",2026-11-08
+Sep 2026 gasoline CPI m/m (SA),9.1,9.09,FRED CUSR0000SETB01,2026-11-08
+Gasoline share of Sep headline SA m/m change (%),50.0,54.03,approx: Aug-2026 gasoline RI 3.853 (BLS Dec-2025 RI 2.895 updated by relative prices) x gas m/m / headline m/m 0.65,2026-11-08
+Jun 2022 energy CPI y/y,41.6,41.62,"BLS API v1, NSA, 12-month % change (CUUR0000SA0E)",2026-11-08
+Jun 2022 headline CPI y/y,9.1,9.06,"BLS API v1, NSA, 12-month % change (CUUR0000SA0)",2026-11-08
+EIA Oct-2026 STEO Brent Q4 2026 avg $/bbl,105.0,104.67,"EIA STEO Oct 2026, table 2, BREPUUS (monthly avg of Oct-Dec)",2026-11-08
+EIA Oct-2026 STEO Brent 2027 avg $/bbl,84.0,84.0,"EIA STEO Oct 2026, table 2, BREPUUS (mean of 12 months)",2026-11-08
