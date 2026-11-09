@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -360,7 +361,7 @@ def resume_bullets(k: dict, n_tests: int) -> str:
 
 # ---------------- publish ----------------
 def count_tests() -> int:
-    out = subprocess.run(["python3", "-m", "pytest", "--collect-only", "-q", "-p", "no:warnings"],
+    out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q", "-p", "no:warnings"],
                          capture_output=True, text=True).stdout
     m = re.search(r"(\d+) tests? collected", out)
     return int(m.group(1)) if m else 0

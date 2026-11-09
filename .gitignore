@@ -1,0 +1,21 @@
+# Python and test caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node packages (reinstalled with `npm install` / `npm ci`)
+node_modules/
+
+# OS and editor files
+.DS_Store
+.Rhistory
+
+# Everything the pipeline writes is rebuilt on every run and published on the project website.
+# Only the per-run key-number snapshots are kept in git, so "changes since the last run" works
+# on any machine and on GitHub.
+outputs/*
+!outputs/history/
+docs/
+
+# Local preview settings for Claude Code
+.claude/

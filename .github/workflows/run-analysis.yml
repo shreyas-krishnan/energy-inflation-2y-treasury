@@ -1,0 +1,96 @@
+name: Run analysis
+
+# Downloads fresh data, reruns the model and the automated checks, and republishes the project
+# website. Start it by hand from the Actions tab ("Run workflow"), or let the schedule run it.
+# If any download or check fails, the run stops and nothing is published.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 1 * * 2-6"  # 01:17 UTC Tue-Sat = about 7:15 pm US Central, Monday to Friday evenings
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "site/**"
+      - "reports/**"
+      - "run_all.py"
+      - "config.yaml"
+      - "requirements.txt"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/run-analysis.yml"
+
+permissions:
+  contents: write  # save each run's key-number snapshot to outputs/history
+  pages: write     # publish the website
+  id-token: write  # required by the Pages deployment
+
+concurrency:
+  group: run-analysis
+  cancel-in-progress: false
+
+env:
+  TZ: America/Chicago  # date each run in US Central time, like runs on the Mac
+
+jobs:
+  run:
+    name: Download data, run the model and the checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install packages
+        run: |
+          pip install -r requirements.txt
+          npm ci
+
+      - name: Run the analysis (fresh data, model, checks, website)
+        run: python run_all.py
+
+      - name: Save this run's key numbers to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/history
+          if git diff --cached --quiet; then
+            echo "Nothing new to save."
+          else
+            AS_OF=$(python -c "import json; print(json.load(open('outputs/key_numbers.json'))['as_of'])")
+            git commit -m "Results snapshot, data as of $AS_OF"
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Keep the memo, deck and resume bullets from this run
+        uses: actions/upload-artifact@v4
+        with:
+          name: deliverables
+          path: outputs/deliverables
+
+      - name: Package the website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    name: Publish the website
+    needs: run
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

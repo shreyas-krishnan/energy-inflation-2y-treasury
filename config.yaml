@@ -167,3 +167,10 @@ release_calendar:
     - {date: "2026-11-10", reference: "October 2026"}
     - {date: "2026-12-10", reference: "November 2026"}
   # EIA STEO next-release date and FOMC meetings are parsed from the downloaded pages.
+
+site:
+  # Project website, rebuilt into docs/ on every run and published by .github/workflows/run-analysis.yml
+  repo_url: "https://github.com/shreyas-krishnan/energy-inflation-2y-treasury"
+  pages_url: "https://shreyas-krishnan.github.io/energy-inflation-2y-treasury/"
+  workflow_file: "run-analysis.yml"
+  schedule_note: "every weekday at about 7:15 pm US Central"

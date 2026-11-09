@@ -1,8 +1,10 @@
-"""Run the full pipeline: Phase 1 (data), 2 (Modules A-B), 3 (Modules C-D), 4 (memo, deck, bullets).
+"""Run the full pipeline: Phase 1 (data), 2 (Modules A-B), 3 (Modules C-D), 4 (memo, deck, bullets),
+then the automated checks and the project website (docs/index.html).
 
 Usage:  python run_all.py            # download fresh data, then verify
         python run_all.py --offline  # verify using files already in data/raw
 """
+import subprocess
 import sys
 from pathlib import Path
 
@@ -10,7 +12,7 @@ import pandas as pd
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent))
-from src import download, phase2, phase3, phase4, verify  # noqa: E402
+from src import download, phase2, phase3, phase4, site, verify  # noqa: E402
 
 
 def main() -> None:
@@ -40,6 +42,15 @@ def main() -> None:
     print(out4["changes"])
     for kind, pth in out4["paths"].items():
         print(f"{kind}: {pth}")
+
+    # Automated checks, then the project website (docs/), which shows their results
+    junit = Path("outputs/build/test_results.xml")
+    junit.parent.mkdir(parents=True, exist_ok=True)
+    sys.stdout.flush()
+    tests = subprocess.run([sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider", f"--junitxml={junit}"])
+    print(f"site: {site.build(cfg)}")
+    if tests.returncode != 0:
+        sys.exit("Some automated checks failed (see above). The site shows which; nothing should be published.")
 
 
 if __name__ == "__main__":

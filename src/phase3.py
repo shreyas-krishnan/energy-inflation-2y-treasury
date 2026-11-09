@@ -190,6 +190,14 @@ def run_treasury(cfg: dict, raw: Path, infl: dict) -> dict:
                      "excess_annualized_pct": tr.annualize(rn - rb, days)})
     sens = pd.DataFrame(sens)
     sens.to_csv(TABLES / "treasury_sensitivity.csv", index=False)
+    # Same calculation on a 5 bp grid, for the interactive explorer on the project website
+    curve = []
+    for bp in range(-100, 130, 5):
+        ye = y_roll + bp / 100
+        rn = trade.note_return(ye)
+        curve.append({"yield_change_vs_rolldown_bp": bp, "horizon_yield_pct": ye, "note_hpr_pct": 100 * rn,
+                      "bill_hpr_pct": 100 * rb, "excess_pct": 100 * (rn - rb)})
+    pd.DataFrame(curve).to_csv(TABLES / "treasury_return_curve.csv", index=False)
 
     probs = tc["probabilities"]
     if abs(sum(probs.values()) - 1) > 1e-6:

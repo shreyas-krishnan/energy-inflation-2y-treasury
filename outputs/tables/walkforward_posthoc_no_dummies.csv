@@ -1,7 +1,0 @@
-h,rmse_model,rmse_retail_1to1,rmse_model_no_dummies,note
-1,1.6880639037305503,1.4495276660351644,1.6628328358513516,post-hoc diagnostic; not used for model selection
-2,7.022430704772146,6.945792353382421,6.939100437095184,post-hoc diagnostic; not used for model selection
-3,11.477711959372623,11.290983189450026,11.324296492574613,post-hoc diagnostic; not used for model selection
-4,14.457508833272865,14.208195247345987,14.233917964972827,post-hoc diagnostic; not used for model selection
-5,16.558777201193923,16.25938438417082,16.289609639922123,post-hoc diagnostic; not used for model selection
-6,18.23040203498786,17.895155789827587,17.939915182043883,post-hoc diagnostic; not used for model selection
